@@ -37,12 +37,16 @@ python3 -m http.server 8000
 
 Sonra brauzerdə `http://localhost:8000` ünvanını açın.
 
-## Hostinqə yerləşdirmək
+## Yerləşdirmə
 
-`index.html` faylını istənilən hostinqə yükləmək kifayətdir: cPanel, Netlify, Vercel və ya GitHub Pages. `photos/` qovluğunu yükləmək lazım deyil.
+Sayt **GitHub Pages** üzərindən **https://rozazergerli.com** ünvanında yayımlanır:
 
-- **Netlify:** faylı qovluqla birlikdə [app.netlify.com/drop](https://app.netlify.com/drop) səhifəsinə sürükləyin.
-- **cPanel:** File Manager ilə `public_html` qovluğuna yükləyin.
+- **Kod:** [github.com/Vaqif/rozazergerli](https://github.com/Vaqif/rozazergerli), `main` branch.
+- **Domen DNS-i:** Cloudflare.
+- **Dəyişikliyi saytda göstərmək:** `git push`. Dəyişiklik 1–2 dəqiqəyə saytda görünür.
+- **`CNAME` faylını silməyin,** domen bağlantısı ondadır.
+
+Başqa hostinqə köçmək lazım olsa, `index.html` faylını yükləmək kifayətdir: cPanel, Netlify və ya Vercel.
 
 ## Vacib qeydlər
 

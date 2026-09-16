@@ -6,7 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The official one-page website for Roza Zərgərli (singer, theatre director, actress). There is no build system, package manager, tests or git. The entire site is one hand-written file, `index.html`, with inline CSS and vanilla JS (an ES5-style IIFE with no dependencies). Only Google Fonts is loaded from outside.
 
-- `index.html` is the whole deliverable. All local photos are embedded as base64 `data:` URIs, so the file is about 2 MB. Deploy by uploading this one file to any static host (cPanel, Netlify, Vercel, GitHub Pages).
+- `index.html` is the whole deliverable. All local photos are embedded as base64 `data:` URIs, so the file is about 2 MB.
+- **Deployment:** GitHub Pages serves the root of the `main` branch of `github.com/Vaqif/rozazergerli` at https://rozazergerli.com (DNS on Cloudflare). A push to `main` goes live within 1–2 minutes. Do not delete the `CNAME` file, because it holds the custom domain.
 - `photos/` holds the original source photos, kept only as a backup. The page does not reference them.
 - `README.md` and `YENILEME.md` (both in Azerbaijani, written for the non-technical site owner) cover deployment and step-by-step content updates, including a `foto.py` photo-swap snippet. When you change a structure these guides describe (show markup, `data-shows` format, i18n keys, photo anchors), update the guides too. `README.txt` is the older short version of the README.
 
