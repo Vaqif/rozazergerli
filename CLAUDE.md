@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The official one-page website for Roza Zərgərli (singer, theatre director, actress). There is no build system, package manager, tests or git. The entire site is one hand-written file, `index.html`, with inline CSS and vanilla JS (an ES5-style IIFE with no dependencies). Only Google Fonts is loaded from outside.
+The official one-page website for Roza Zərgərli (singer, theatre director, actress). There is no build system, package manager or tests. The entire site is one hand-written file, `index.html`, with inline CSS and vanilla JS (an ES5-style IIFE with no dependencies). Only Google Fonts is loaded from outside.
 
 - `index.html` is the whole deliverable. All local photos are embedded as base64 `data:` URIs, so the file is about 2 MB.
 - **Deployment:** GitHub Pages serves the root of the `main` branch of `github.com/Vaqif/rozazergerli` at https://rozazergerli.com (DNS on Cloudflare). A push to `main` goes live within 1–2 minutes. Do not delete the `CNAME` file, because it holds the custom domain.

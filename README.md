@@ -50,6 +50,6 @@ Başqa hostinqə köçmək lazım olsa, `index.html` faylını yükləmək kifay
 
 ## Vacib qeydlər
 
-- **Əlaqə forması sorğuları heç yerə göndərmir.** Forma yalnız xanaların doldurulduğunu yoxlayır və "Sorğunuz qəbul olundu" yazısını göstərir. Sorğuların e-poçta gəlməsi üçün forma servisi (məsələn, Formspree və ya Netlify Forms) qoşulmalıdır.
+- **Əlaqə forması sorğuları heç yerə göndərmir.** Forma yalnız xanaların doldurulduğunu yoxlayır və "Sorğunuz qəbul olundu" yazısını göstərir. Sorğuların e-poçta gəlməsi üçün forma servisi (məsələn, Formspree) qoşulmalıdır.
 - **Fayl böyükdür (~2 MB),** çünki fotolar içindədir. Yeni foto əlavə edəndə onu əvvəlcə kiçildin (bax: [YENILEME.md](YENILEME.md#fotolar)).
 - Konsert tarixləri keçdikcə geri sayım avtomatik olaraq növbəti konsertə keçir. Bütün tarixlər keçəndə "Turne başa çatdı — yeni tarixlər tezliklə" yazısı çıxır.
