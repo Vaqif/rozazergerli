@@ -6,8 +6,10 @@ Müğənni, rejissor və aktrisa Roza Zərgərlinin bir səhifəlik rəsmi sayt�
 
 | Fayl | Nədir |
 |---|---|
-| `index.html` | Bütün sayt. Dizayn, mətnlər, tərcümələr və fotolar bu faylın içindədir. |
+| `index.html` | Sayt. Dizayn, mətnlər və tərcümələr bu faylın içindədir. |
+| `img/` | Saytda göstərilən fotolar: ana ekran, portret və qalereya. |
 | `photos/` | Orijinal fotolar. Ehtiyat üçün saxlanılır, sayt bu qovluqdan istifadə etmir. |
+| `CNAME` | Domen bağlantısı (`rozazergerli.com`). Silməyin. |
 | [YENILEME.md](YENILEME.md) | Konsert, klip, mətn və fotoları dəyişmək üçün addım-addım təlimat. |
 | `CLAUDE.md` | Claude Code üçün texniki qeydlər. |
 
@@ -46,10 +48,10 @@ Sayt **GitHub Pages** üzərindən **https://rozazergerli.com** ünvanında yay�
 - **Dəyişikliyi saytda göstərmək:** `git push`. Dəyişiklik 1–2 dəqiqəyə saytda görünür.
 - **`CNAME` faylını silməyin,** domen bağlantısı ondadır.
 
-Başqa hostinqə köçmək lazım olsa, `index.html` faylını yükləmək kifayətdir: cPanel, Netlify və ya Vercel.
+Başqa hostinqə (cPanel, Netlify, Vercel) köçmək lazım olsa, `index.html` faylını və `img/` qovluğunu birlikdə yükləyin.
 
 ## Vacib qeydlər
 
 - **Əlaqə forması sorğuları heç yerə göndərmir.** Forma yalnız xanaların doldurulduğunu yoxlayır və "Sorğunuz qəbul olundu" yazısını göstərir. Sorğuların e-poçta gəlməsi üçün forma servisi (məsələn, Formspree) qoşulmalıdır.
-- **Fayl böyükdür (~2 MB),** çünki fotolar içindədir. Yeni foto əlavə edəndə onu əvvəlcə kiçildin (bax: [YENILEME.md](YENILEME.md#fotolar)).
+- **Fotoları `index.html`-in içinə yerləşdirməyin.** Əvvəl fotolar faylın içində idi: fayl 2 MB idi və sayt 20 saniyəyə qədər boş görünürdü. Fotolar `img/` qovluğunda qalmalıdır (bax: [YENILEME.md](YENILEME.md#fotolar)).
 - Konsert tarixləri keçdikcə geri sayım avtomatik olaraq növbəti konsertə keçir. Bütün tarixlər keçəndə "Turne başa çatdı — yeni tarixlər tezliklə" yazısı çıxır.

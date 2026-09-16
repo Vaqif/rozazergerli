@@ -145,54 +145,42 @@ Telefonun `href="tel:..."` hissəsində boşluq olmamalıdır.
 
 ## Fotolar
 
-Fotolar fayla şəkil kodu (base64) kimi yerləşdirilib. Bu kod çox uzun olduğu üçün onu əllə dəyişmək çətindir. Aşağıdakı skriptdən istifadə edin.
+Saytdakı fotolar `img/` qovluğundadır:
 
-### 1. Fotonu hazırlayın
-
-JPG formatında olsun və eni 1200 pikseldən böyük olmasın. macOS-da bunu terminalda edə bilərsiniz:
-
-```bash
-sips -Z 1200 -s formatOptions 80 yeni-foto.jpg
-```
-
-Hər foto saytın ölçüsünü artırır, ona görə kiçildilmiş fotodan istifadə edin.
-
-### 2. Skripti yaradın
-
-Bu kodu `index.html` ilə eyni qovluqda `foto.py` adlı faylda saxlayın:
-
-```python
-import base64, re, sys
-anchor, photo = sys.argv[1], sys.argv[2]
-html = open("index.html", encoding="utf-8").read()
-b64 = base64.b64encode(open(photo, "rb").read()).decode()
-pat = re.compile('(' + re.escape(anchor) + r'.{0,60}?src="data:image/jpeg;base64,)[^"]*')
-html, n = pat.subn(lambda m: m.group(1) + b64, html, count=1)
-if n != 1: sys.exit("Tapılmadı: " + anchor)
-open("index.html", "w", encoding="utf-8").write(html)
-print("Hazırdır:", anchor)
-```
-
-### 3. Fotonu dəyişin
-
-Terminalda qovluğa keçin və lazım olan əmri işə salın:
-
-| Hansı foto | Əmr |
+| Fayl | Harada görünür |
 |---|---|
-| Ana ekran | `python3 foto.py 'class="hero-photo"' yeni-foto.jpg` |
-| Haqqında (portret) | `python3 foto.py 'class="portrait"' yeni-foto.jpg` |
-| Qalereya, 1-ci foto | `python3 foto.py 'data-full="gl1"' yeni-foto.jpg` |
-| Qalereya, 5-ci foto | `python3 foto.py 'data-full="gl5"' yeni-foto.jpg` |
+| `img/hero.jpg` | Ana ekran |
+| `img/portrait.jpg` | Haqqında bölməsi (portret) |
+| `img/gallery-01.jpg` … `img/gallery-11.jpg` | Qalereya, soldan sağa sıra ilə |
 
-Qalereyada 11 foto var (`gl1`…`gl11`).
+### Fotonu dəyişmək
 
-### Qalereyada fotonun ölçüsü və yazısı
+1. **Fotonu kiçildin.** Eni 1200 pikseldən böyük olmasın, format JPG olsun. macOS-da terminalda:
+   ```bash
+   sips -Z 1200 -s formatOptions 80 yeni-foto.jpg
+   ```
+2. **Köhnə faylın yerinə qoyun.** Yeni fotonun adını dəyişdirilən faylın adı ilə eyni edin (məsələn `gallery-05.jpg`) və `img/` qovluğundakı köhnə faylın üstünə yazın.
 
-- Qalereyadakı fotonun hündürlüyü düymənin sinfindən asılıdır:
-  - `class="ph"` normal ölçüdür;
-  - `class="ph tall"` iki sətir hündürlüyündədir (şaquli fotolar üçün);
-  - `class="ph wide"` iki sütun enindədir (üfüqi fotolar üçün).
-- Fotonun üstündəki yazı (məsələn "Kulis") `gl1`, `gl2` və s. tərcümə açarlarındadır.
+`index.html`-də heç nə dəyişmək lazım deyil.
+
+> **Fotonu `index.html`-in içinə kod (base64) kimi yerləşdirməyin.** Əvvəl fotolar belə idi: fayl 2 MB-a çatırdı və sayt açılanda bölmələr 20 saniyəyə qədər boş görünürdü.
+
+### Qalereyaya yeni foto əlavə etmək
+
+1. Fotonu `img/gallery-12.jpg` adı ilə saxlayın.
+2. `index.html`-də `data-full="gl11"` axtarın və həmin sətri kopyalayıb altına yapışdırın.
+3. Yeni sətirdə üç yeri dəyişin:
+   - `gl11` → `gl12` (iki yerdə);
+   - `gallery-11.jpg` → `gallery-12.jpg`.
+4. Tərcümə cədvəlinə fotonun üstündəki yazını əlavə edin:
+   `"gl12": {"az": "Konsert", "ru": "Концерт", "en": "Concert"},`
+
+### Qalereyada fotonun ölçüsü
+
+Qalereyadakı fotonun ölçüsü düymənin sinfindən asılıdır:
+- `class="ph"` normal ölçüdür;
+- `class="ph tall"` iki sətir hündürlüyündədir (şaquli fotolar üçün);
+- `class="ph wide"` iki sütun enindədir (üfüqi fotolar üçün).
 
 ---
 
@@ -205,4 +193,10 @@ Hər dəyişiklikdən sonra:
 3. Geri sayımın düzgün şəhəri göstərdiyini yoxlayın.
 4. Bir klipə və bir bilet linkinə klikləyin.
 5. Sayt tamamilə boş və ya "ölü" görünürsə (düymələr işləmir), çox güman ki, tərcümə cədvəlində vergül və ya dırnaq səhvi var. Son dəyişikliyə baxın və ya ehtiyat surətə qayıdın.
-6. Yeniləmədən sonra faylı hostinqə yenidən yükləyin.
+6. Dəyişiklikləri GitHub-a göndərin:
+   ```bash
+   git add -A
+   git commit -m "Konsert tarixləri yeniləndi"
+   git push
+   ```
+   1–2 dəqiqədən sonra dəyişiklik **rozazergerli.com**-da görünəcək.

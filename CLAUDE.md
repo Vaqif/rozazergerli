@@ -6,17 +6,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The official one-page website for Roza Zərgərli (singer, theatre director, actress). There is no build system, package manager or tests. The entire site is one hand-written file, `index.html`, with inline CSS and vanilla JS (an ES5-style IIFE with no dependencies). Only Google Fonts is loaded from outside.
 
-- `index.html` is the whole deliverable. All local photos are embedded as base64 `data:` URIs, so the file is about 2 MB.
+- `index.html` holds all markup, CSS, JS and translations (~96 KB). The photos it displays live in `img/` (`hero.jpg`, `portrait.jpg`, `gallery-01…11.jpg`) and are referenced by relative path.
 - **Deployment:** GitHub Pages serves the root of the `main` branch of `github.com/Vaqif/rozazergerli` at https://rozazergerli.com (DNS on Cloudflare). A push to `main` goes live within 1–2 minutes. Do not delete the `CNAME` file, because it holds the custom domain.
 - `photos/` holds the original source photos, kept only as a backup. The page does not reference them.
-- `README.md` and `YENILEME.md` (both in Azerbaijani, written for the non-technical site owner) cover deployment and step-by-step content updates, including a `foto.py` photo-swap snippet. When you change a structure these guides describe (show markup, `data-shows` format, i18n keys, photo anchors), update the guides too. `README.txt` is the older short version of the README.
+- **Never embed images as base64 `data:` URIs.** The site originally did this, and the resulting 2.2 MB HTML took about 20 s to download. The reveal script sits at the end of the file, so every `.reveal` section stayed blank until the download finished.
+- `README.md` and `YENILEME.md` (both in Azerbaijani, written for the non-technical site owner) cover deployment and step-by-step content updates, When you change a structure these guides describe (show markup, `data-shows` format, i18n keys, photo anchors), update the guides too. `README.txt` is the older short version of the README.
 
 To preview, open `index.html` in a browser or serve the folder (`python3 -m http.server`). The YouTube modal and the Spotify/Apple Music embeds only work on a real domain (see "Sandbox detection" below).
 
 ## Working with the file
 
-- **Never Read or cat the whole file.** Lines 390, 439 and 648–658 each hold hundreds of KB of base64 image data, and line 802 (`var I18N=`) is about 24 KB on one line. These numbers move whenever lines are added above them; find the current ones with `awk 'length($0)>20000{print NR}' index.html`. Use `grep -n` or view line ranges, and cut long lines (for example `awk '{print NR": "substr($0,1,200)}'`).
-- To swap an embedded photo, re-encode the file (`base64 -i photo.jpg`) and replace the whole `src="data:image/jpeg;base64,..."` value with a script (`python3`/`sed`), not with Edit.
+- The `var I18N=` translation table is a single ~24 KB line near the end of the script. Find it with `grep -n 'var I18N=' index.html`, and edit it with an exact string replacement in a script rather than by reading the line in full.
+- To change a photo, overwrite the matching file in `img/`. Resize it to about 1200 px wide first; no HTML change is needed.
 - The site copy is written in Azerbaijani first. Russian and English come from the translation table.
 
 ## Architecture
