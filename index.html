@@ -9,7 +9,8 @@
 <meta name="theme-color" content="#2A0F1A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"></noscript>
 <style>
 :root{
   --bg:#2A0F1A;        /* dərin nar */
@@ -387,7 +388,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <section class="hero">
   <div class="hero-bg" aria-hidden="true">
     <div class="glow"></div>
-    <div class="hero-photo"><img src="img/hero.jpg" alt="" fetchpriority="high"></div>
+    <div class="hero-photo"><img src="img/hero.webp" alt="" fetchpriority="high"></div>
     <!-- Kəsilmiş daş: "Zərgərli" motivi -->
     <div class="sparks" id="sparks"></div>
     <svg class="gem" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -436,7 +437,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
       <p data-i18n="a_lead">Akkordeonla başlayan, fortepiano və vokalla davam edən, rejissor kürsüsündə yetkinləşən bir yaradıcılıq yolu.</p>
     </div>
     <div class="reveal about-grid">
-      <figure class="portrait"><img src="img/portrait.jpg" alt="Roza Zərgərli" loading="lazy"></figure>
+      <figure class="portrait"><img src="img/portrait.webp" alt="Roza Zərgərli" loading="lazy"></figure>
       <div class="about-text">
         <p data-i18n="a_p1">Roza Zərgərli 1979-cu il martın 27-də hərbçi ailəsində anadan olub. Musiqiyə uşaqlıqdan bağlanıb: ilk aləti akkordeon olub, sonra fortepiano sinfinə keçib və yeddiillik musiqi məktəbini dörd ilə bitirib.</p>
         <p data-i18n="a_p2">Musiqi Texnikumunu və Musiqi Akademiyasının vokal ixtisasını fərqlənmə diplomu ilə başa vurub. 2007-ci ildə Azərbaycan Dövlət Mədəniyyət və İncəsənət Universitetini rejissorluq üzrə bitirib, 2015-ci ildə isə “Rejissor sənətinin tarixi və nəzəriyyəsi” ixtisası üzrə magistr diplomu alıb.</p>
@@ -505,10 +506,10 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
     </ul>
         <div class="players reveal">
       <div class="player"><h4 data-i18n="pl_sp">Spotify-da dinlə</h4>
-        <iframe src="https://open.spotify.com/embed/artist/090DkzLApTeWVM3DOaIIY9?utm_source=generator&theme=0" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify"></iframe>
+        <iframe data-src="https://open.spotify.com/embed/artist/090DkzLApTeWVM3DOaIIY9?utm_source=generator&theme=0" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify"></iframe>
         <p class="fallback"><span data-i18n="pl_fb">Pleyer bu önizləmədə göstərilmir.</span> <a href="https://open.spotify.com/artist/090DkzLApTeWVM3DOaIIY9" target="_blank" rel="noopener">Spotify ↗</a></p></div>
       <div class="player"><h4 data-i18n="pl_ap">Apple Music-də dinlə</h4>
-        <iframe src="https://embed.music.apple.com/kz/artist/roza-z%C9%99rg%C9%99rli/1236849563" height="352" loading="lazy" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" title="Apple Music"></iframe>
+        <iframe data-src="https://embed.music.apple.com/kz/artist/roza-z%C9%99rg%C9%99rli/1236849563" height="352" loading="lazy" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" title="Apple Music"></iframe>
         <p class="fallback"><span data-i18n="pl_fb">Pleyer bu önizləmədə göstərilmir.</span> <a href="https://music.apple.com/kz/artist/roza-z%C9%99rg%C9%99rli/1236849563" target="_blank" rel="noopener">Apple Music ↗</a></p></div>
     </div>
     <div class="reveal listen-row">
@@ -609,27 +610,27 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
         <span class="vmeta"><b>Zəng elə</b><small>Official Video · 2026</small></span>
       </button>
       <button class="vcard" data-yt="TxCM0vpCUWA" type="button" aria-label="Hələ Sən klipini izlə">
-        <img src="https://i.ytimg.com/vi/TxCM0vpCUWA/maxresdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <img src="https://i.ytimg.com/vi/TxCM0vpCUWA/sddefault.jpg" alt="" loading="lazy" onerror="this.remove()">
         <span class="vplay">▶</span>
         <span class="vmeta"><b>Hələ Sən</b><small>Yeni klip · 2025</small></span>
       </button>
       <button class="vcard" data-yt="SpYWHk5rrIU" type="button" aria-label="İstədim klipini izlə">
-        <img src="https://i.ytimg.com/vi/SpYWHk5rrIU/maxresdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <img src="https://i.ytimg.com/vi/SpYWHk5rrIU/sddefault.jpg" alt="" loading="lazy" onerror="this.remove()">
         <span class="vplay">▶</span>
         <span class="vmeta"><b>İstədim</b><small data-i18n="vd_new">Yeni klip 4K · 2024</small></span>
       </button>
       <button class="vcard" data-yt="QaLdYf0EycU" type="button" aria-label="Əlimdən Tut klipini izlə">
-        <img src="https://i.ytimg.com/vi/QaLdYf0EycU/maxresdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <img src="https://i.ytimg.com/vi/QaLdYf0EycU/sddefault.jpg" alt="" loading="lazy" onerror="this.remove()">
         <span class="vplay">▶</span>
         <span class="vmeta"><b>Əlimdən Tut</b><small>feat. Rəssam · 2024</small></span>
       </button>
       <button class="vcard" data-yt="bB1uTDzg8Z8" type="button" aria-label="Biri Sənsən Biri Mən klipini izlə">
-        <img src="https://i.ytimg.com/vi/bB1uTDzg8Z8/maxresdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <img src="https://i.ytimg.com/vi/bB1uTDzg8Z8/sddefault.jpg" alt="" loading="lazy" onerror="this.remove()">
         <span class="vplay">▶</span>
         <span class="vmeta"><b>Biri Sənsən Biri Mən</b><small>feat. Valeh · 2024</small></span>
       </button>
       <button class="vcard" data-yt="0e4-jRjctKg" type="button" aria-label="Hər Gün klipini izlə">
-        <img src="https://i.ytimg.com/vi/0e4-jRjctKg/maxresdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <img src="https://i.ytimg.com/vi/0e4-jRjctKg/sddefault.jpg" alt="" loading="lazy" onerror="this.remove()">
         <span class="vplay">▶</span>
         <span class="vmeta"><b>Hər Gün</b><small>Official Video · 2024</small></span>
       </button>
@@ -645,17 +646,17 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
       <p data-i18n="gl_lead">Səhnə, fotosessiyalar, mükafatlar və kulis anları.</p>
     </div>
     <div class="masonry reveal-stagger">
-      <button class="ph tall" type="button" data-full="gl1"><img src="img/gallery-01.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl1">Kulis</span></button>
-      <button class="ph" type="button" data-full="gl2"><img src="img/gallery-02.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl2">Fotosessiya</span></button>
-      <button class="ph" type="button" data-full="gl3"><img src="img/gallery-03.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl3">Fotosessiya</span></button>
-      <button class="ph tall" type="button" data-full="gl4"><img src="img/gallery-04.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl4">ЖАРА Music Awards</span></button>
-      <button class="ph" type="button" data-full="gl5"><img src="img/gallery-05.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl5">Sea Breeze</span></button>
-      <button class="ph tall" type="button" data-full="gl6"><img src="img/gallery-06.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl6">Konsert</span></button>
-      <button class="ph tall" type="button" data-full="gl7"><img src="img/gallery-07.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl7">Fotosessiya</span></button>
-      <button class="ph" type="button" data-full="gl8"><img src="img/gallery-08.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl8">Səhnə, duet</span></button>
-      <button class="ph tall" type="button" data-full="gl9"><img src="img/gallery-09.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl9">Konsert</span></button>
-      <button class="ph" type="button" data-full="gl10"><img src="img/gallery-10.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl10">Səhnə, duet</span></button>
-          <button class="ph" type="button" data-full="gl11"><img src="img/gallery-11.jpg" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl11">Klip çəkilişi</span></button>
+      <button class="ph tall" type="button" data-full="gl1" data-large="img/gallery-01-large.webp"><img src="img/gallery-01.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl1">Kulis</span></button>
+      <button class="ph" type="button" data-full="gl2" data-large="img/gallery-02-large.webp"><img src="img/gallery-02.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl2">Fotosessiya</span></button>
+      <button class="ph" type="button" data-full="gl3" data-large="img/gallery-03-large.webp"><img src="img/gallery-03.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl3">Fotosessiya</span></button>
+      <button class="ph tall" type="button" data-full="gl4" data-large="img/gallery-04-large.webp"><img src="img/gallery-04.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl4">ЖАРА Music Awards</span></button>
+      <button class="ph" type="button" data-full="gl5" data-large="img/gallery-05-large.webp"><img src="img/gallery-05.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl5">Sea Breeze</span></button>
+      <button class="ph tall" type="button" data-full="gl6" data-large="img/gallery-06-large.webp"><img src="img/gallery-06.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl6">Konsert</span></button>
+      <button class="ph tall" type="button" data-full="gl7" data-large="img/gallery-07-large.webp"><img src="img/gallery-07.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl7">Fotosessiya</span></button>
+      <button class="ph" type="button" data-full="gl8" data-large="img/gallery-08-large.webp"><img src="img/gallery-08.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl8">Səhnə, duet</span></button>
+      <button class="ph tall" type="button" data-full="gl9" data-large="img/gallery-09-large.webp"><img src="img/gallery-09.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl9">Konsert</span></button>
+      <button class="ph" type="button" data-full="gl10" data-large="img/gallery-10-large.webp"><img src="img/gallery-10.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl10">Səhnə, duet</span></button>
+          <button class="ph" type="button" data-full="gl11" data-large="img/gallery-11-large.webp"><img src="img/gallery-11.webp" alt="Roza Zərgərli" loading="lazy"><span data-i18n="gl11">Klip çəkilişi</span></button>
     </div>
   </div>
 </section>
@@ -816,7 +817,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
     if(!l){var n=(navigator.language||'az').slice(0,2);l=n==='ru'?'ru':n==='en'?'en':'az';}
     setLang(l);})();
   var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
-  document.querySelectorAll('.ph[data-full]').forEach(function(b){b.addEventListener('click',function(){lastFocus=b;lbimg.src=b.querySelector('img').src;lbimg.alt=b.textContent.trim();lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbx').focus()})});
+  document.querySelectorAll('.ph[data-full]').forEach(function(b){b.addEventListener('click',function(){lastFocus=b;lbimg.src=b.getAttribute('data-large')||b.querySelector('img').src;lbimg.alt=b.textContent.trim();lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbx').focus()})});
   function closeLb(){lb.hidden=true;lbimg.src='';document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
   document.getElementById('lbx').addEventListener('click',closeLb);lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)closeLb()});
@@ -840,6 +841,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
   var tk=document.getElementById('ticker'),names=['Zəng elə','Hələ Sən','İstədim','Əlimdən Tut','Biri Sənsən Biri Mən','Hər Gün','Live Tour 2026'];
   if(tk){var h='';for(var r=0;r<2;r++){names.forEach(function(n){h+='<span>'+n+'</span>'});h+='<span class="tkname">Roza Zərgərli</span>'}tk.innerHTML=h;setLang(document.documentElement.lang)}
   if(sandboxed)document.documentElement.classList.add('sandboxed');
+  /* music players: attach iframe src only when near the viewport */
+  var pl=document.querySelectorAll('iframe[data-src]');
+  if(!sandboxed&&pl.length){var pio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.src=en.target.getAttribute('data-src');pio.unobserve(en.target)}})},{rootMargin:'600px 0px'});pl.forEach(function(f){pio.observe(f)})}
   if(!rm&&window.matchMedia('(pointer:fine)').matches){var last=0;document.addEventListener('mousemove',function(e){var now=Date.now();if(now-last<40)return;last=now;var dd=document.createElement('span');dd.className='dust';var sz=2+Math.random()*4;dd.style.width=dd.style.height=sz+'px';dd.style.left=e.clientX+'px';dd.style.top=e.clientY+'px';dd.style.setProperty('--dx',((Math.random()-.5)*40)+'px');dd.style.setProperty('--dy',(-10-Math.random()*40)+'px');document.body.appendChild(dd);setTimeout(function(){dd.remove()},900)})}
   document.querySelectorAll('.disc[data-href]').forEach(function(b){b.addEventListener('click',function(){window.open(b.getAttribute('data-href'),'_blank','noopener')})});
   var cdEl=document.getElementById('countdown');

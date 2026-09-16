@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The official one-page website for Roza Zərgərli (singer, theatre director, actress). There is no build system, package manager or tests. The entire site is one hand-written file, `index.html`, with inline CSS and vanilla JS (an ES5-style IIFE with no dependencies). Only Google Fonts is loaded from outside.
 
-- `index.html` holds all markup, CSS, JS and translations (~96 KB). The photos it displays live in `img/` (`hero.jpg`, `portrait.jpg`, `gallery-01…11.jpg`) and are referenced by relative path.
+- `index.html` holds all markup, CSS, JS and translations (~96 KB). The photos it displays are WebP files in `img/`: `hero.webp` (900 px), `portrait.webp` (800 px), and for the gallery `gallery-NN.webp` (600 px grid thumbnail) plus `gallery-NN-large.webp` (≤1200 px, opened by the lightbox through the button's `data-large`). The JPEG sources are kept in `img/src/`, which the page does not reference.
 - **Deployment:** GitHub Pages serves the root of the `main` branch of `github.com/Vaqif/rozazergerli` at https://rozazergerli.com (DNS on Cloudflare). A push to `main` goes live within 1–2 minutes. Do not delete the `CNAME` file, because it holds the custom domain.
 - `photos/` holds the original source photos, kept only as a backup. The page does not reference them.
 - **Never embed images as base64 `data:` URIs.** The site originally did this, and the resulting 2.2 MB HTML took about 20 s to download. The reveal script sits at the end of the file, so every `.reveal` section stayed blank until the download finished.
@@ -17,7 +17,7 @@ To preview, open `index.html` in a browser or serve the folder (`python3 -m http
 ## Working with the file
 
 - The `var I18N=` translation table is a single ~24 KB line near the end of the script. Find it with `grep -n 'var I18N=' index.html`, and edit it with an exact string replacement in a script rather than by reading the line in full.
-- To change a photo, overwrite the matching file in `img/`. Resize it to about 1200 px wide first; no HTML change is needed.
+- To change a photo, run `tools/foto.sh <input.jpg> <hero|portrait|gallery-NN>`. It resizes the image, encodes it as WebP with `cwebp` and copies the source into `img/src/`. No HTML change is needed.
 - The site copy is written in Azerbaijani first. Russian and English come from the translation table.
 
 ## Architecture
@@ -38,6 +38,12 @@ To preview, open `index.html` in a browser or serve the folder (`python3 -m http
 **Concerts and countdown.** Each show is an `<li class="show">` in `<ul class="shows">`. The countdown reads `#countdown[data-shows]`, a `;`-separated list of `ISO-datetime-with-offset|i18n-city-key` entries in chronological order. When adding or removing a show, keep three things in sync: the `<li>`, its `data-shows` entry, and its `ct_*`/`v_*` keys in `I18N`. The countdown strips any `<span…` from the city string, so tag spans are safe to use there. Once every date has passed, it shows `I18N.cd_done`.
 
 **Motion.** Elements with `.reveal` or `.reveal-stagger` get the `.in` class from an IntersectionObserver. `[data-count]` / `[data-suffix]` numbers count up when they come into view. The page also has hero parallax, sparks, and a gold "dust" cursor trail on fine pointers. All of these are skipped under `prefers-reduced-motion`. The `#ticker` code is dead, because the page has no element with that id.
+
+**Performance.** Keep the initial load light:
+- The Spotify and Apple Music iframes use `data-src`. An IntersectionObserver (`rootMargin` 600px) copies it to `src` only when the players come near the viewport.
+- Google Fonts loads through `rel=preload` + `onload`, so it does not block rendering.
+- Only the big video card uses YouTube `maxresdefault`; the small cards use `sddefault`.
+- GitHub Pages sends `cache-control: max-age=600`, and this cannot be configured.
 
 **Contact form.** This is client-side only. `#send` checks the `[required]` fields and shows the `#ok` message. **Nothing is sent anywhere.** Real delivery would need a backend or a form service.
 

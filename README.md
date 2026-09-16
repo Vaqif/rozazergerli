@@ -7,7 +7,8 @@ Müğənni, rejissor və aktrisa Roza Zərgərlinin bir səhifəlik rəsmi sayt�
 | Fayl | Nədir |
 |---|---|
 | `index.html` | Sayt. Dizayn, mətnlər və tərcümələr bu faylın içindədir. |
-| `img/` | Saytda göstərilən fotolar: ana ekran, portret və qalereya. |
+| `img/` | Saytda göstərilən fotolar (WebP). Orijinal JPG-lər `img/src/` qovluğundadır. |
+| `tools/foto.sh` | Fotonu kiçildib WebP-yə çevirən skript (bax: [YENILEME.md](YENILEME.md#fotolar)). |
 | `photos/` | Orijinal fotolar. Ehtiyat üçün saxlanılır, sayt bu qovluqdan istifadə etmir. |
 | `CNAME` | Domen bağlantısı (`rozazergerli.com`). Silməyin. |
 | [YENILEME.md](YENILEME.md) | Konsert, klip, mətn və fotoları dəyişmək üçün addım-addım təlimat. |

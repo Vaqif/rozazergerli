@@ -145,33 +145,46 @@ Telefonun `href="tel:..."` hissəsində boşluq olmamalıdır.
 
 ## Fotolar
 
-Saytdakı fotolar `img/` qovluğundadır:
+Saytdakı fotolar `img/` qovluğunda **WebP** formatındadır. Bu format JPG-dən təxminən iki dəfə yüngüldür. Orijinal JPG-lər `img/src/` qovluğunda saxlanılır.
 
-| Fayl | Harada görünür |
-|---|---|
-| `img/hero.jpg` | Ana ekran |
-| `img/portrait.jpg` | Haqqında bölməsi (portret) |
-| `img/gallery-01.jpg` … `img/gallery-11.jpg` | Qalereya, soldan sağa sıra ilə |
+| Ad | Harada görünür | Fayllar |
+|---|---|---|
+| `hero` | Ana ekran | `img/hero.webp` |
+| `portrait` | Haqqında bölməsi | `img/portrait.webp` |
+| `gallery-01` … `gallery-11` | Qalereya | `img/gallery-05.webp` (kiçik) və `img/gallery-05-large.webp` (böyüdüləndə) |
 
 ### Fotonu dəyişmək
 
-1. **Fotonu kiçildin.** Eni 1200 pikseldən böyük olmasın, format JPG olsun. macOS-da terminalda:
-   ```bash
-   sips -Z 1200 -s formatOptions 80 yeni-foto.jpg
-   ```
-2. **Köhnə faylın yerinə qoyun.** Yeni fotonun adını dəyişdirilən faylın adı ilə eyni edin (məsələn `gallery-05.jpg`) və `img/` qovluğundakı köhnə faylın üstünə yazın.
+Terminalda sayt qovluğuna keçin və bir əmr işə salın:
+
+```bash
+tools/foto.sh ~/Downloads/yeni-foto.jpg gallery-05
+```
+
+İkinci söz hansı fotonun dəyişdiyini bildirir: `hero`, `portrait` və ya `gallery-01` … `gallery-11`.
+
+Skript bunları özü edir:
+- fotonu lazımi ölçüyə kiçildir;
+- WebP-yə çevirir;
+- köhnə faylın yerinə yazır;
+- orijinalı `img/src/`-ə saxlayır.
 
 `index.html`-də heç nə dəyişmək lazım deyil.
 
-> **Fotonu `index.html`-in içinə kod (base64) kimi yerləşdirməyin.** Əvvəl fotolar belə idi: fayl 2 MB-a çatırdı və sayt açılanda bölmələr 20 saniyəyə qədər boş görünürdü.
+Skript `cwebp` proqramını tələb edir. Kompüterdə yoxdursa, bir dəfə quraşdırın: `brew install webp`.
+
+> **Fotonu `index.html`-in içinə kod (base64) kimi yerləşdirməyin və böyük JPG-ni birbaşa `img/`-ə qoymayın.** Sayt yavaşlayacaq.
 
 ### Qalereyaya yeni foto əlavə etmək
 
-1. Fotonu `img/gallery-12.jpg` adı ilə saxlayın.
+1. Fotonu hazırlayın:
+   ```bash
+   tools/foto.sh ~/Downloads/yeni-foto.jpg gallery-12
+   ```
 2. `index.html`-də `data-full="gl11"` axtarın və həmin sətri kopyalayıb altına yapışdırın.
-3. Yeni sətirdə üç yeri dəyişin:
+3. Yeni sətirdə bu yerləri dəyişin:
    - `gl11` → `gl12` (iki yerdə);
-   - `gallery-11.jpg` → `gallery-12.jpg`.
+   - `gallery-11` → `gallery-12` (iki yerdə: `data-large` və `src`).
 4. Tərcümə cədvəlinə fotonun üstündəki yazını əlavə edin:
    `"gl12": {"az": "Konsert", "ru": "Концерт", "en": "Concert"},`
 
